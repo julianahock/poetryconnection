@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title my jade template
+  body
+
+    h1 Create new            
+    form(name="input", action="html_form_action.asp", method="get")
+      | Title:
+      input(type="text", name="title")
+
+      | Author:
+      input(type="text", name="author")
+
+      input(type="submit", value="Create")
+
+    h1.text-center All Poems
+    ul
+        for poem in poems
+            li #{poem.title} - #{poem.author}
