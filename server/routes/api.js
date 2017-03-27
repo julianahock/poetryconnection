@@ -42,7 +42,7 @@ module.exports = function(router){
         })
     })
     
-    //delete a specific poem from /api/poems/<ID>
+    //update a specific poem from /api/poems/<ID>
     router.post('/poems/:id', function(req, res){
         Poem.findOne({_id: req.params.id}, function(err, data){
             var poem = data;
@@ -50,10 +50,10 @@ module.exports = function(router){
             poem.author = req.body.author;
         
             poem.save(function(err, data){
-            if(err)
-                throw err;
-            res.json(data);
-        });
+                if(err)
+                    throw err;
+                res.json(data);
+            });
         })
     })
 }

@@ -3,8 +3,10 @@ var app = express();
 //native nodeJS module for resolving paths
 var path = require('path');
 
+
 var bodyParser = require('body-parser') // requires npm install --save body-parser
-app.use( bodyParser.json() );
+app.use( bodyParser.json() ); //to make api.js work to accept JSON
+app.use(bodyParser.urlencoded()); // to support URL-encoded bodies
 
 //When starting mongod use mongod --smallfiles option
 var mongoose = require('mongoose');
