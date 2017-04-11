@@ -5,8 +5,8 @@ var path = require('path');
 
 
 var bodyParser = require('body-parser') // requires npm install --save body-parser
-app.use( bodyParser.json() ); //to make api.js work to accept JSON
-app.use(bodyParser.urlencoded()); // to support URL-encoded bodies
+app.use( bodyParser.json() ); //to make REST api.js work to accept JSON
+//app.use(bodyParser.urlencoded()); // to support URL-encoded bodies for jade html forms
 
 //When starting mongod use mongod --smallfiles option
 var mongoose = require('mongoose');
@@ -27,10 +27,12 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 
 
 var api = express.Router();
-require('./server/routes/api')(api);
+require('./server/routes/apipoem')(api);
+require('./server/routes/apiuser')(api);
+require('./server/routes/apireview')(api);
 app.use('/api', api); //The url root for this router is /api
 
-console.log("Begin set up router");
+console.log("Begin set up router for jade");
 var poemrouter = require('./server/routes/poemrouter');
 app.use('/', poemrouter); //The url root for this router is /
 console.log("End set up router");
