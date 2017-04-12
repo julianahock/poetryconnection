@@ -1,0 +1,14 @@
+<script src="libs/angular/angular.js"></script>
+<script src="controller.js"></script>
+<html ng-app="poetApp">
+
+<body>
+<!-- Tell app to use the controller -->
+<div ng-controller="PoetController">
+  <ul>
+    <li ng-repeat="poem in poems">
+      {{ poem.title }}-{{ poem.author }}
+    </li>
+  </ul>
+</div>
+</body>
