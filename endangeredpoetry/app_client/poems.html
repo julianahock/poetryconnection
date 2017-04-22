@@ -1,0 +1,110 @@
+<div ng-controller="PoemsController">
+  <h1>Poems</h1>
+  Search: <input ng-model="searchKeyword"/>
+  <table class="table">
+    <thead class="thead-inverse">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Rating</th>
+          <th>Number of Reviews</th>
+          <th>Delete</th>
+          <th>Id</th>
+          <th>View Poem</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="poem in poems | filter: searchKeyword">
+          <td>{{ poem.title }}</td>
+          <td>{{ poem.author }}</td>
+          <td>
+            <div  ng-show="poem.score < .5">
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= .5 && poem.score < 1">
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 1 && poem.score < 1.5">
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 1.5 && poem.score < 2">
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 2 && poem.score < 2.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 2.5 && poem.score < 3">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 3 && poem.score < 3.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 3.5 && poem.score < 4">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 4 && poem.score < 4.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score >= 4.5 && poem.score < 5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+            </div>
+            <div ng-show="poem.score == 5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+            </div>
+    
+            {{ poem.score }}
+          <td>{{ poem.numberReviews }}</td>
+          <td><button ng-click="deletePoem(poem._id)">Delete</button></td>
+          <td>{{ poem._id }}</td>
+          <td><button ng-click="goToPoem(poem)">View</button></td>
+        </tr>
+    </tbody>
+  </table>
+  
+  {{getCurrentUser()._id}}
+  
+</div>

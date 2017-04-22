@@ -1,0 +1,50 @@
+<html ng-app="poetApp">
+<script src="lib/bootstrap.js">  </script> 
+<script src="lib/angular.min.js">  </script> 
+<script src="lib/angular-route.min.js">  </script> 
+<script src="app.js">  </script>  <!--- This is the angular app w angular routes -->
+<script src="controllers/indexcontroller.js"></script>
+<script src="controllers/poemscontroller.js"></script>
+<script src="controllers/registercontroller.js"></script>
+<script src="controllers/createpoemcontroller.js"></script>
+<script src="controllers/viewpoemcontroller.js"></script>
+<script src="controllers/myreviewscontroller.js"></script>
+<script src="controllers/userscontroller.js"></script>
+<script src="controllers/createreviewcontroller.js"></script>
+
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'/> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+  <h1>Poetry Connection</h1>
+  <div ng-controller="IndexController"> 
+    <ul class="nav nav-tabs">
+      <li><a ng-href="/">Home</a></li>
+      <li><a ng-href="/#/createpoem" ng-show='signedIn()'>Submit a Poem</a></li>
+      <li><a ng-href="/#/myreviews" ng-show='signedIn()'>My Reviews</a></li>
+      <li><a ng-href="/#/myprofile" ng-show='signedIn()'>My Profile</a></li>
+      <li><a ng-href='/#/about'>About</a></li>
+      <li><a ng-href='/#/users' ng-show='signedIn()'>Users</a></li>
+    </ul>
+
+    <span ng-show='signedIn()'>
+      {{ getCurrentUser().firstName }} {{ getCurrentUser().lastName }} <button ng-click="signOut()">Sign out</button>
+    </span>
+  
+    <span ng-show='!signedIn()'>
+      <input type="text" ng-model="currentUser.screenName" placeholder="Screen Name">
+  	  <button ng-click="signIn()">Sign in</button>
+  	  {{ statusMessage }}
+  	  <a href="/#/register">Register</a>
+    </span>  
+  </div>  
+
+  <!--- insert templates from angular inside this div -->  
+  <div ng-view> </div>  
+
+</div>
+</body>

@@ -1,0 +1,159 @@
+<div ng-controller="PoemsController">
+  <h1>Poems</h1>
+  <h1>Search for a Poem by Title or Author</h1>
+  https://scotch.io/tutorials/sort-and-filter-a-table-using-angular
+    <p>Only administrators can delete</p>
+  <table class="table">
+    <thead class="thead-inverse">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Rating</th>
+          <th>Number of Reviews</th>
+          <th>Delete</th>
+          <th>Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="poem in poems">
+          <td>{{ poem.title }}</td>
+          <td>{{ poem.author }}</td>
+          <td>
+            <div  ng-show="poem.score < .5">
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 1">
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 1.5">
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 2">
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 2.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 3">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 3.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 4">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 4.5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star0.png"/>
+            </div>
+            <div ng-show="poem.score < 5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/starhalf.png"/>
+            </div>
+            <div ng-show="poem.score = 5">
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+                <img src="img/star.png"/>
+            </div>
+    
+            {{ poem.score }}
+          <td>{{ poem.numberReviews }}</td>
+          <td></td>
+          <td>{{ poem._id }}</td>
+        </tr>
+    </tbody>
+  </table>
+  
+  <h1>View selected poem here</h1>
+  <h1>Rate selected poem here if signed in<h1>
+  {{getCurrentUser()._id}}
+
+  <h1>Reviews</h1>
+  <p>We don't want to show user ids but rather screenName. 
+  Need to modify reviews API to add user.screenName if searching by poems (and add poem.title if searching by user)</p>
+  <p>Only administrators can delete</p>
+  <table>
+    <tr>
+      <th>Review</th>
+      <th>Score</th>
+      <th>Reviewer</th>
+      <th>_poem</th>
+      <th>_reviewer</th>
+      <th>Delete</th>
+      <th>Id</th>
+    </tr>
+    <tr ng-repeat="review in reviews">
+      <td>{{ review.reviewBody }}</td>
+      <td>{{ review.score }}</td>
+      <td>{{ review.reviewer }}</td>
+      <td>{{ review._poem }}</td>
+      <td>{{ review._reviewer }}</td>
+      <td></td>
+      <td>{{ review._id }}</td>
+    </tr>
+  </table>
+  <h1>My reviews</h1>
+
+	<h1>Users</h1>
+	Admins Only
+	<table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Screen Name</th>
+      <th>email</th>
+      <th>Delete</th>
+      <th>Id</th>
+    </tr>
+    <tr ng-repeat="user in users">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.screenName }}</td>
+      <td>{{ user.email }}</td>
+      <td></td>
+      <td>{{ user._id }}</td>
+    </tr>
+  </table>
+	
+</div>

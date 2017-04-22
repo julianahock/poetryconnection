@@ -1,0 +1,7 @@
+  <div ng-controller="CreatePoemController">
+    <h1>Add a New Poem</h1>
+    <input type="text" ng-model="newPoem.title" placeholder="Title" class="ng-valid ng-dirty">
+    <input type="text" ng-model="newPoem.author" placeholder="Author" class="ng-valid ng-dirty">
+    <input type="textarea" ng-model="newPoem.poemBody" placeholder="Poem Body"/>
+  	<button ng-click="addPoem()">Add</button>
+  </div>

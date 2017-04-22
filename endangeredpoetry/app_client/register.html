@@ -1,0 +1,8 @@
+<div ng-controller="RegisterController"> 
+  <h1>Register</h1> We load into currentUser so newly registered users are "signed in"
+  <input type="text" ng-model="currentUser.firstName" placeholder="First Name" class="ng-valid ng-dirty">
+  <input type="text" ng-model="currentUser.lastName" placeholder="Last Name" class="ng-valid ng-dirty">
+  <input type="text" ng-model="currentUser.screenName" placeholder="Screen Name" class="ng-valid ng-dirty">
+  <input type="text" ng-model="currentUser.email" placeholder="email" class="ng-valid ng-dirty">
+	<button ng-click="addUser()">Register</button>
+</div>

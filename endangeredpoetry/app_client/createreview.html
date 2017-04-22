@@ -1,0 +1,6 @@
+  <div ng-controller="CreateReviewController">
+    <h1>Write review</h1>
+    <input type="text" ng-model="newReview.score" placeholder="Score" class="ng-valid ng-dirty">
+    <input type="textarea" ng-model="newReview.reviewBody" placeholder="Review"/>
+  	<button ng-click="addReview()">Add</button>
+ </div>

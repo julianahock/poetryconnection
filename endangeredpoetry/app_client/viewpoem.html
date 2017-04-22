@@ -1,0 +1,37 @@
+  <div ng-controller="ViewPoemController">
+    <h1>{{poem.title}}</h1>
+    <h2>{{poem.author}}</h2>
+    <div>{{poem.poemBody}}</div>
+    <h3>{{poem.score}}</h3>
+    <h3>{{poem.numberReviews}}</h3>
+    
+  <a ng-href ="/#/createreview/{{poem._id}}" ng-show='signedIn()'>Write review</a>
+  
+  <h1>Reviews</h1>
+  
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Review</th>
+        <th>Score</th>
+        <th>Reviewer</th>
+        <th>Delete</th>
+        <th>_poem</th>
+        <th>_reviewer</th>
+        <th>Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="review in reviews">
+        <td>{{ review.reviewBody }}</td>
+        <td>{{ review.score }}</td>
+        <td>{{ review.reviewer }}</td>
+        <td><button ng-click="deleteReview(review._id)" ng-show='signedIn()'>Delete</button></td>
+        <td>{{ review._poem }}</td>
+        <td>{{ review._reviewer }}</td>
+        <td>{{ review._id }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

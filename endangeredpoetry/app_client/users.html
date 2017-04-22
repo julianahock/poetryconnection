@@ -1,0 +1,26 @@
+<div ng-controller="UsersController">
+	<h1>Users</h1>
+	Admins Only
+	<table class="table">
+    <thead class="thead-inverse">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Screen Name</th>
+          <th>email</th>
+          <th>Delete</th>
+          <th>Id</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users | filter: searchKeyword" ng-click="goToPoem(poem)">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.screenName }}</td>
+      <td>{{ user.email }}</td>
+      <td><button ng-click="deleteUser(user._id)">Delete</button></td>
+      <td>{{ user._id }}</td>
+    </tr>
+    </tbody>
+  </table>
+ </div>
